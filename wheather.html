@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather Forecast App</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:linear-gradient(to bottom,#d8d1f2,#b7d9f7);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.weather-card{
+    width:850px;
+    background:#f4f4f7;
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.location{
+    font-size:30px;
+    color:#333;
+    margin-bottom:15px;
+}
+
+.temp{
+    font-size:90px;
+    font-weight:bold;
+    color:#222;
+}
+
+.feels{
+    font-size:28px;
+    color:#555;
+}
+
+.status{
+    margin-top:15px;
+    font-size:24px;
+    color:#444;
+}
+
+.weather-icon{
+    font-size:120px;
+}
+
+.forecast-title{
+    text-align:center;
+    margin:25px 0;
+    color:#444;
+    font-size:22px;
+}
+
+.forecast{
+    display:flex;
+    justify-content:space-between;
+}
+
+.day{
+    text-align:center;
+    padding:10px;
+    border-right:1px solid #ccc;
+    flex:1;
+}
+
+.day:last-child{
+    border:none;
+}
+
+.day h3{
+    margin-bottom:15px;
+}
+
+.icon{
+    font-size:45px;
+}
+
+.high{
+    font-size:35px;
+    margin-top:10px;
+}
+
+.low{
+    background:#dbe3ec;
+    border-radius:8px;
+    padding:5px;
+    margin-top:10px;
+    display:inline-block;
+}
+
+.update{
+    text-align:right;
+    margin-top:20px;
+    color:#666;
+}
+
+.search-box{
+    margin-bottom:25px;
+}
+
+input{
+    padding:10px;
+    width:250px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+button{
+    padding:10px 15px;
+    border:none;
+    background:#4a7cff;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#2f63ef;
+}
+</style>
+</head>
+
+<body>
+
+<div class="weather-card">
+
+<div class="search-box">
+<input type="text" id="city" placeholder="Enter City">
+<button onclick="searchWeather()">Search</button>
+</div>
+
+<div class="top">
+<div>
+<h2 class="location" id="location">Today · Bangalore</h2>
+
+<span class="temp" id="temp">28°</span>
+<span class="feels">Feels like 26°C</span>
+
+<p class="status">
+Partly Cloudy · UV Index 3
+</p>
+</div>
+
+<div class="weather-icon">
+🌤️
+</div>
+</div>
+
+<hr style="margin:25px 0;">
+
+<h3 class="forecast-title">7-DAY FORECAST</h3>
+
+<div class="forecast">
+
+<div class="day">
+<h3>Mon</h3>
+<div class="icon">🌤️</div>
+<div class="high">29°</div>
+<div class="low">22°</div>
+</div>
+
+<div class="day">
+<h3>Tue</h3>
+<div class="icon">🌧️</div>
+<div class="high">26°</div>
+<div class="low">20°</div>
+</div>
+
+<div class="day">
+<h3>Wed</h3>
+<div class="icon">⛅</div>
+<div class="high">28°</div>
+<div class="low">21°</div>
+</div>
+
+<div class="day">
+<h3>Thu</h3>
+<div class="icon">☀️</div>
+<div class="high">32°</div>
+<div class="low">24°</div>
+</div>
+
+<div class="day">
+<h3>Fri</h3>
+<div class="icon">🌬️</div>
+<div class="high">30°</div>
+<div class="low">23°</div>
+</div>
+
+<div class="day">
+<h3>Sat</h3>
+<div class="icon">🌧️</div>
+<div class="high">27°</div>
+<div class="low">20°</div>
+</div>
+
+<div class="day">
+<h3>Sun</h3>
+<div class="icon">⛈️</div>
+<div class="high">25°</div>
+<div class="low">18°</div>
+</div>
+
+</div>
+
+<p class="update">Updated 12 min ago</p>
+
+</div>
+
+<script>
+function searchWeather(){
+let city=document.getElementById("city").value;
+
+if(city!=""){
+document.getElementById("location").innerHTML=
+"Today · "+city;
+}
+}
+</script>
+
+</body>
+</html>
